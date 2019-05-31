@@ -10,3 +10,4 @@ stats.json
 npm-debug.log
 .idea
 keys.js
+.env
