@@ -1,0 +1,4 @@
+{
+  "app.containers.HomePage.header": "Ini homepage container",
+  "app.containers.NotFoundPage.header": "Maaf, halaman yang anda cari tidak ada"
+}
