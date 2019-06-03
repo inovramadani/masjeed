@@ -14,6 +14,7 @@ const ngrok =
     ? require('ngrok')
     : false;
 const { resolve } = require('path');
+const apollo = require('./graphql')
 
 mongoUtil.connectToDB(err => {
   const app = express();
@@ -23,6 +24,9 @@ mongoUtil.connectToDB(err => {
   // If you need a backend, e.g. an API, add your custom backend-specific middleware here
   const api = require('./api/index');
   app.use('/api', api);
+
+  // Setup apollo as middleware for express app
+  apollo(app, port);
 
   // In production we need to pass these values in instead of relying on webpack
   setup(app, {
