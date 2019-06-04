@@ -28,14 +28,16 @@ function HomePage(props) {
     }`
 
     // graphql api request example using axios and graphql-request
-    // axios.post('/graphql', { query })
-    //   .then(res => console.log('res = ', res))
-    const test = async () => {
-      const response = await request('https://masjeed.herokuapp.com/graphql', query)
-      setBooks(response.books)
-    }
+    axios.post('/graphql', { query })
+      .then(res => {
+        setBooks(res.data.data.books)
+      })
+    // const test = async () => {
+    //   const response = await request('https://masjeed.herokuapp.com/graphql', query)
+    //   setBooks(response.books)
+    // }
 
-    test()
+    // test()
   }, [])
 
   return (
