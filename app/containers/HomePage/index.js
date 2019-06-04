@@ -5,7 +5,7 @@
  *
  */
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { request } from 'graphql-request'
 import { connect } from 'react-redux';
@@ -17,6 +17,8 @@ import { changeLocale } from 'containers/LanguageProvider/actions'
 import messages from './messages';
 
 function HomePage(props) {
+  const [books, setBooks] = useState([])
+
   useEffect(() => {
     const query = `{
       books {
@@ -25,13 +27,15 @@ function HomePage(props) {
       }
     }`
 
-    console.log('hello, I am here')
-
     // graphql api request example using axios and graphql-request
     // axios.post('/graphql', { query })
     //   .then(res => console.log('res = ', res))
-    request('https://masjeed.herokuapp.com/graphql', query)
-      .then(res => console.log('res = ', res))
+    const test = async () => {
+      const response = await request('/graphql', query)
+      setBooks(response.books)
+    }
+
+    test()
   }, [])
 
   return (
@@ -51,6 +55,14 @@ function HomePage(props) {
       <option value="en">en</option>
       <option value="ar">ar</option>
     </select>
+    {
+      books.map(book => (
+        <>
+        <p>{book.title}</p>
+        <p>{book.author}</p>
+        </>
+      ))
+    }
     </div>
   );
 }
