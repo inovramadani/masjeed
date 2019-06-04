@@ -25,6 +25,8 @@ function HomePage(props) {
       }
     }`
 
+    console.log('hello, I am here')
+
     // graphql api request example using axios and graphql-request
     // axios.post('/graphql', { query })
     //   .then(res => console.log('res = ', res))
@@ -58,7 +60,10 @@ const stateToProps = state => ({
 })
 
 const dispatchToProps = {
-  onLocaleChange: event => changeLocale(event.target.value)
+  onLocaleChange: event => {
+    console.log('I am changed')
+    return changeLocale(event.target.value)
+  }
 }
 
 export default connect(stateToProps, dispatchToProps)(HomePage)
