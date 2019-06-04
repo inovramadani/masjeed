@@ -31,7 +31,7 @@ function HomePage(props) {
     // axios.post('/graphql', { query })
     //   .then(res => console.log('res = ', res))
     const test = async () => {
-      const response = await request('/graphql', query)
+      const response = await request('https://masjeed.herokuapp.com/graphql', query)
       setBooks(response.books)
     }
 
