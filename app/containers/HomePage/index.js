@@ -74,10 +74,7 @@ const stateToProps = state => ({
 })
 
 const dispatchToProps = {
-  onLocaleChange: event => {
-    console.log('I am changed')
-    return changeLocale(event.target.value)
-  }
+  onLocaleChange: event => changeLocale(event.target.value)
 }
 
 export default connect(stateToProps, dispatchToProps)(HomePage)
