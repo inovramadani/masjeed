@@ -28,7 +28,7 @@ function HomePage(props) {
     // graphql api request example using axios and graphql-request
     // axios.post('/graphql', { query })
     //   .then(res => console.log('res = ', res))
-    request('/graphql', query)
+    request('https://masjeed.herokuapp.com/graphql', query)
       .then(res => console.log('res = ', res))
   }, [])
 
