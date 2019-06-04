@@ -5,7 +5,9 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios'
+import { request } from 'graphql-request'
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { Helmet } from 'react-helmet';
@@ -15,6 +17,21 @@ import { changeLocale } from 'containers/LanguageProvider/actions'
 import messages from './messages';
 
 function HomePage(props) {
+  useEffect(() => {
+    const query = `{
+      books {
+        title,
+        author
+      }
+    }`
+
+    // graphql api request example using axios and graphql-request
+    // axios.post('/graphql', { query })
+    //   .then(res => console.log('res = ', res))
+    request('/graphql', query)
+      .then(res => console.log('res = ', res))
+  }, [])
+
   return (
     <div>
     <Helmet>
