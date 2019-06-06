@@ -49,7 +49,7 @@ function HomePage(props) {
           content="Home page of Masjeed"
         />
       </Helmet>
-    <h1>
+    <h1 onClick={() => console.log('somethign')}>
       <FormattedMessage {...messages.header} />
     </h1>
     <select value={props.locale} onChange={props.onLocaleChange}>
