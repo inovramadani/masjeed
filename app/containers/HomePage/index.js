@@ -59,12 +59,21 @@ function HomePage(props) {
     </select>
     {
       books.map(book => (
-        <>
+        <div>
         <p>{book.title}</p>
         <p>{book.author}</p>
-        </>
+        </div>
       ))
     }
+    <a href='/auth/google'>Login</a>
+    <br />
+    <a href='/auth/logout'>Logout</a>
+    <br />
+    <button onClick={() => {
+      axios.get('/auth/user').then(res => console.log('res = ', res))
+    }}>
+    getuser
+    </button>
     </div>
   );
 }
