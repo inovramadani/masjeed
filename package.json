@@ -90,7 +90,7 @@
     "invariant": "2.2.4",
     "ip": "1.1.5",
     "lodash": "4.17.11",
-    "minimist": "1.2.0",
+    "minimist": "1.2.3",
     "mongodb": "3.2.6",
     "nodemon": "1.19.1",
     "passport": "^0.4.0",
